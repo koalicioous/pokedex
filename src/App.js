@@ -18,10 +18,9 @@ class App extends Component {
     return (
       <Router>
         <Navbar/>
-
         <Switch>
           <Route exact path="/"><Home/></Route>
-          <Route path="/detail"><Detail/></Route>
+          <Route path="/:name"><Detail/></Route>
         </Switch>
       </Router>
     )

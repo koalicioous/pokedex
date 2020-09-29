@@ -1,19 +1,59 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import { useQuery, gql } from '@apollo/client'
+
+import Spinner from '../components/spinner';
+import Specification from '../components/detail-specification'
+
 
 export default function Detail(props) {
-    
+
+    let {name} = useParams();
+    const FETCH_POKEMON_DETAIL = gql`{
+        pokemon(name: "${name}"){
+            name
+            image
+            weight {
+                minimum
+                maximum
+              }
+              height {
+                minimum
+                maximum
+              }
+              classification
+              types
+              attacks {
+                fast {
+                  name
+                  type
+                  damage
+                }
+                special {
+                  name
+                  type
+                  damage
+                }
+              }
+              resistant
+              weaknesses
+              evolutions {
+                name
+                image
+              }
+        }   
+    }`
+
+    const { loading,error,data } = useQuery(FETCH_POKEMON_DETAIL)
+    if(loading) return <Spinner/>
+
+    const pokemon = Object.assign({}, data.pokemon)
+    if(!pokemon.evolutions) {
+        pokemon.evolutions = []
+    }
 
     return (
-       <div className="container">
-           <div className="row justify-content-center">
-               <Link to="/" className="my-2 mr-auto"><small>&#8592; Back</small></Link>
-               <div className="col-md-12">
-                   <div className="bg-dark detail-title py-3">
-                       {props.name}
-                   </div>
-               </div>
-           </div>
-       </div>
+        <Specification pokemon={pokemon}/>
     )
 }
+

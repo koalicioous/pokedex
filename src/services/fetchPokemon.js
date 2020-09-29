@@ -11,4 +11,4 @@ export const FETCH_POKEMONS = gql`{
         name
         image
     }
-}`;
+}`
