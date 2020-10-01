@@ -6,9 +6,10 @@ export  const client = new ApolloClient({
 })
 
 export const FETCH_POKEMONS = gql`{
-    pokemons(first:10){
+    pokemons(first:30){
         id
         name
         image
+        types
     }
 }`

@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 
 import Navbar from './components/navbar'
@@ -11,9 +10,8 @@ import Navbar from './components/navbar'
 import Home from './pages/home';
 import Detail from './pages/detail';
 
-class App extends Component {
 
-  
+class App extends Component {
   render(){
     return (
       <Router>

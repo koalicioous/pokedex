@@ -56,25 +56,25 @@ export default function DetailSpecification(props) {
                  <div className="card mb-3">
                      <div className="card-header">Fast Attacks</div>
                      <div className="card-body">
-                         { props.pokemon.attacks.fast.map((item) => (<DetailItem item={item.name} />) )}
+                         { props.pokemon.attacks.fast.map((item) => (<DetailItem key={item.name} item={item.name} />) )}
                      </div>
                  </div>
                  <div className="card mb-3">
                      <div className="card-header">Special Attacks</div>
                      <div className="card-body">
-                         { props.pokemon.attacks.special.map((item) => (<DetailItem item={item.name} />) )}
+                         { props.pokemon.attacks.special.map((item) => (<DetailItem key={item.name} item={item.name} />) )}
                      </div>
                  </div>
                  <div className="card mb-3">
                      <div className="card-header">Resistances</div>
                      <div className="card-body d-flex flex-wrap justify-content-center">
-                         { props.pokemon.resistant.map((item) => (<DetailItem item={item} />))}
+                         { props.pokemon.resistant.map((item) => (<DetailItem key={item.name} item={item} />))}
                      </div>
                  </div>
                  <div className="card mb-3">
                      <div className="card-header">Weaknesses</div>
                      <div className="card-body d-flex flex-wrap justify-content-center">
-                     { props.pokemon.weaknesses.map((item) => (<DetailItem item={item}/>))}
+                     { props.pokemon.weaknesses.map((item) => (<DetailItem key={item.name} item={item}/>))}
                      </div>
                  </div>
              </div>
